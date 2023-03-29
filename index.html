@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+  <style>
+    * {font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+  </style>
+</head>
+<body>
+<div class="mt-content">
+    <div class="slider">
+        <div class="slides">
+          <a class="prev" onclick="plusSlides(0)"><i class="fas fa-chevron-left"></i></a>
+          <div class="slide slide--active">
+
+              <div  class="slide__image">
+                  <img class="rounded-circle img-fluid" src="https://relaunch.lifbi.de/Portals/2/adam/Content/xjEnQ6rmHE2BvY39iEXtMA/Bild/offizielles%20Foto_J-D-Freund.jpg?h=300&w=300&mode=crop"/>
+              </div>
+              <div class="slide__content">
+                  <div class="slide__quote mb-element"><i class="fas fa-chevron-right"></i> In meiner Zeit am LIfBi gab es viel Wandel, aber auch eine Konstante: Die gemeinsame Forschungsleidenschaft, die zu jeder Zeit alle miteinander verbunden hat. Egal ob bei Konferenzen, Kolloquia oder in der Kaffeeküche. Zusammen mit den großartigen Rahmenbedingungen und Datensätzen schuf das den idealen Rahmen für meine Promotion und unsere Projektforschung. <i class="fas fa-chevron-left"></i></div>
+                  <div class="slide__persona">Dr. Jan-David Freund</div>
+                  <div class="slide__workarea">Forschungsdatenzentrum</div>
+              </div>
+
+          </div>
+          <div class="slide">
+
+              <div  class="slide__image">
+                  <img class="rounded-circle img-fluid" src="https://relaunch.lifbi.de/Portals/2/adam/Content/zEMwYYH3I06PiLt-vui_5A/Bild/2246.jpg?h=300&w=300&mode=crop"/>
+              </div>
+              <div class="slide__content">
+                  <div class="slide__quote mb-element"><i class="fas fa-chevron-right"></i> Das LIfBi ist für mich so viel mehr als nur Bildungsforschung. Kolleginnen und Kollegen verschiedener Disziplinen erforschen grundlegende gesellschaftliche Fragen, aber auch methodische Herausforderungen der Datenerhebung und -analyse. Für meine eigene Forschung ist dieser Austausch zusammen mit dem umfassenden Datenangebot unglaublich bereichernd und inspirierend. <i class="fas fa-chevron-left"></i></div>
+                  <div class="slide__persona">Prof. Dr. Gundula Zoch</div>
+                  <div class="slide__workarea">Ehemals PostDoc, jetzt Research Fellow am LIfBi</div>
+              </div>
+
+          </div>
+          <div class="slide">
+
+              <div  class="slide__image">
+                  <img class="rounded-circle img-fluid" src="https://relaunch.lifbi.de/Portals/2/adam/Content/WUe1wZcjAUO8Ds0EQtrNyg/Bild/Portrait%20CL.jpg?h=300&w=300&mode=crop"/>
+              </div>
+              <div class="slide__content">
+                  <div class="slide__quote mb-element"><i class="fas fa-chevron-right"></i> LIfBi heißt für mich leidenschaftlich – interdisziplinär – fortschrittlich – bunt – international.  Ein Team, das am selben Strang zieht, kann Großes erreichen. Ich bin dankbar für die schöne Zeit mit vielen tollen Kolleg:innen am Institut.  <i class="fas fa-chevron-left"></i></div>
+                  <div class="slide__persona">Dr. Christian Lorenz</div>
+                  <div class="slide__workarea">Ehemals Arbeitsbereich Frühe Bildung</div>
+              </div>
+          </div>
+          <div class="slide">
+
+              <div  class="slide__image">
+                  <img class="rounded-circle img-fluid" src="https://relaunch.lifbi.de/Portals/2/adam/Content/WUe1wZcjAUO8Ds0EQtrNyg/Bild/Portrait%20CL.jpg?h=300&w=300&mode=crop"/>
+              </div>
+              <div class="slide__content">
+                  <div class="slide__quote mb-element"><i class="fas fa-chevron-right"></i> Durch meine Arbeit am LIfBi und insbesondere am National Bildungspanel habe ich gelernt, was es bedeutet Surveydaten zu erheben und auszuwerten. Mit all den Höhen und Tiefen, die damit verbunden sind. Ich habe Potentiale kennengelernt, aber auch ein wissenschaftliches Feld, auf dem es noch so unglaublich viel zu erforschen gibt. Das Thema des lebenslangen Lernens ist einfach essentiell für unser gesellschaftliches Vorankommen.    <i class="fas fa-chevron-left"></i></div>
+                  <div class="slide__persona">Prof. Dr. Sabine Zinn</div>
+                  <div class="slide__workarea">Ehemals Arbeitsbereichsleiterin Methoden der Survey-Statistik</div>
+              </div>
+          </div>
+          <a class="next" ><i class="fas fa-chevron-right" ></i></a>
+        </div>
+
+        <div class="slider__navigation">
+            <ul>
+                <li class="slider__nav slider__nav--active">&nbsp;</li>
+                <li class="slider__nav">&nbsp;</li>
+                <li class="slider__nav">&nbsp;</li>
+                <li class="slider__nav">&nbsp;</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+        const nextSlide = function(){
+        let slides = [...document.querySelectorAll(".slide")]
+        let navigations = [...document.querySelectorAll(".slider__nav")]
+        let nextSlide = null;
+        let nextNav = null;
+        let activeSlide = document.querySelector(".slide--active")
+        let activeNav = document.querySelector(".slider__nav--active")
+        let index = slides.indexOf(activeSlide);
+        if(index < slides.length-1) {
+            index += 1
+        }
+        else {
+            index = 0
+        }
+        nextSlide = slides[index]
+        nextNav = navigations[index]
+
+        activeSlide.classList.remove("slide--active");
+        nextSlide.classList.add("slide--active");
+        activeNav.classList.remove("slider__nav--active");
+        nextNav.classList.add("slider__nav--active");
+    }
+
+    const test = document.querySelector(".next");
+    test.addEventListener("click", nextSlide);
+    setInterval(nextSlide, 10000);
+</script>
+
+<style>
+    /* Next & previous buttons */
+    .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    heigth: 100%;
+    padding: 16px;
+    color: #888;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 0 0 0;
+    user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+    position: absolute;
+    right: 0;
+    border-radius: 0 0 0 0;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .next:hover {
+    background-color: rgba(0,0,0,.3);
+    color: white;
+    }
+
+    .prev:hover {
+    background-color: rgba(0,0,0,.3);
+    color: white;
+    }
+
+    
+    .slider {
+        display: grid;
+        margin: auto;
+        grid-template-rows: 1fr auto;
+        background-color: rgb(0,158,226); 
+        margin: auto; 
+        height: 18rem;
+        color: white;
+    }
+    
+    .slides{
+        grid-row: 1;
+        position: relative;
+    }
+    
+    .slider__navigation{
+        grid-row: 2;
+        margin: auto;
+    }
+    
+    .slider__navigation ul{
+        display: flex;
+        gap: 0.5rem
+    }
+    
+    .slider__nav{
+        list-style-type: circle;
+        margin-right: 2px;
+        cursor: pointer;
+        font-size: 1.8rem;
+        color: white;
+    }
+    
+    .slider__nav--active{
+        list-style-type: disc;
+    }
+    
+    .slide {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 3rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        padding: 3rem;
+        height: 10rem;
+    }
+
+    .slide__image {
+        border-radius: 10rem;
+        width: 10rem;
+        height: 10rem;
+        transform: translateX(-3vw);
+        opacity: 0;
+        transition: 
+            transform 1.5s ease-in-out,
+            opacity 1.5s ease-in-out;
+    }
+    
+    
+    .slide__content {
+        font-size: 0.9rem;
+        transform: translateY(3vw);
+        opacity: 0;
+        transition: 
+            transform 1.5s ease-in-out,
+            opacity 1.5s ease-in-out;
+    }
+    
+    
+    .slide__persona {
+        font-style: italic;
+    }
+    
+    .slide__workarea {
+        font-style: italic;
+    }
+    
+    .slide__quote {
+        margin-bottom: 1em;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    
+    
+    .slide--active .slide__content, .slide--active .slide__image {
+        transform: translateY(0);
+        opacity: 1;
+    }
+</style>
+</body>
+</html>
